@@ -8,7 +8,6 @@ import guest
 import qiantai
 
 
-
 title = 'welcome'
 msg = '立天大酒店自助服务程序'
 choices = ['用户登录','用户注册']
