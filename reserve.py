@@ -54,3 +54,10 @@ def tuiding(conn,cursor,uid,room,stime,ftime):
 			sql="delete from history where (room_id="+str(room[i])+")and(user_id="+str(uid)+")and(start_time="+str(stime[i])+")and(finish_time="+str(ftime[i])+")"
 			print(sql)
 			cursor.execute(sql)
+
+
+# 升级VIP
+def vip(conn,cursor,n,gid):
+	sql="update guest set vip_class ="+str(n)+"where id="+str(gid)
+	cursor.execute(sql)
+	conn.commit()
