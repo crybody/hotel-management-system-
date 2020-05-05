@@ -41,3 +41,16 @@ def yuding(conn,cursor,gid,n,stime,ftime,):
 			conn.commit()
 	conn.commit()
 
+# 退订房间
+def tuiding(conn,cursor,uid,room,stime,ftime):
+	l = len(room)
+	t=chaxun2.time
+	for i in range(1):
+		if (stime[i]<=t)and(ftime[i]>t):
+			sql="update history set finish_time= '"+str(chaxun2.time)+"' where ((room_id = "+str(room[i])+') and (user_id = '+str(uid)+')'
+			print(sql)
+			cursor.execute(sql)
+		if (stime[i]>t):
+			sql="delete from history where (room_id="+str(room[i])+")and(user_id="+str(uid)+")and(start_time="+str(stime[i])+")and(finish_time="+str(ftime[i])+")"
+			print(sql)
+			cursor.execute(sql)
